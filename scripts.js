@@ -7,6 +7,7 @@ function computerPlay(){
 
 let playerscore = 0
 let cpuscore = 0
+let howmanygames = parseInt(prompt('How many times do you want to play?! '))
 
 function letsplay(player, cpu){
     let me = player.toLowerCase()
@@ -51,8 +52,9 @@ function letsplay(player, cpu){
 }
 
 
-function games(){
-    for(i=1;i<=5;i++){
+
+function games(rounds){
+    for(i=1;i<=rounds;i++){
         let playerChoice = prompt('Lança a braba!')
         let cpuChoice = computerPlay()
         letsplay(playerChoice,cpuChoice)
@@ -65,4 +67,4 @@ function games(){
     }else{console.log(`You won ${playerscore} games. CPU won ${cpuscore} games... TIE!!!`)}
 }
 
-games()
+games(howmanygames)
