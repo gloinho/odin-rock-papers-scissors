@@ -1,5 +1,6 @@
 let game = ['rock', 'paper', 'scissors'];
-
+let cpucount = 0
+let playercount = 0
 
 const computerclick = document.getElementById('computer');
 function computerPlay(){
@@ -8,7 +9,7 @@ function computerPlay(){
     computerclick.removeAttribute('class');
     computerclick.classList.add(computerChoice);
     return computerChoice;
-}
+};
 
 const player = document.getElementById('player');
 const result = document.getElementById('result');
@@ -25,40 +26,40 @@ function removeTransition(e){
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
 buttons.forEach(button => button.addEventListener('click', function play() {
-    if (parseInt(playerscore.innerText.slice(-2)) === 5){
+    if (cpucount < 5 && playercount < 5){
+        if (this.id==='scissors'){
+        playRound(this.id)
+        this.classList.add('playing')
+        player.textContent = `You played: ${this.id}`;
+        player.removeAttribute('class');
+        player.classList.add(`${this.id}`);
+        }
+        else if (this.id==='paper'){
+            this.classList.add('playing')
+            player.textContent = `You played: ${this.id}`;
+            player.removeAttribute('class');
+            player.classList.add(`${this.id}`);
+            playRound(this.id)    
+        } 
+        else if (this.id==='rock') {
+            this.classList.add('playing')
+            player.textContent = `You played: ${this.id}`;
+            player.removeAttribute('class');
+            player.classList.add(`${this.id}`);
+            playRound(this.id)
+        };
+    };
+    if (playercount === 5){
         result.textContent='YOU WON'
         this.removeEventListener('click', play)
     }
-    else if (parseInt(cpuscore.innerText.slice(-2)) === 5){
+    else if (cpucount === 5){
         result.textContent='CPU WON'
         this.removeEventListener('click', play)
-    }
-    else if (this.id==='scissors'){
-        playRound(this.id)
-        this.classList.add('playing')
-        player.textContent = `You played: ${this.id}`;
-        player.removeAttribute('class');
-        player.classList.add(`${this.id}`);
-    }
-    else if (this.id==='paper'){
-        this.classList.add('playing')
-        player.textContent = `You played: ${this.id}`;
-        player.removeAttribute('class');
-        player.classList.add(`${this.id}`);
-        playRound(this.id)    
-    } 
-    else if (this.id==='rock') {
-        this.classList.add('playing')
-        player.textContent = `You played: ${this.id}`;
-        player.removeAttribute('class');
-        player.classList.add(`${this.id}`);
-        playRound(this.id)
     };
 }));
 
 
-let cpucount = 0
-let playercount = 0
 function playRound(click){
     if (click==='scissors'){    
         let cpu = computerPlay();
@@ -101,7 +102,7 @@ function playRound(click){
             cpuscore.textContent = `CPU score: ${cpucount}`
         }
         else{result.textContent=(`Thats a Tie!`)};   
-    };
+    };  
 };
-console.log(playercount)
+
 
