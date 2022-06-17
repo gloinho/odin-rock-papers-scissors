@@ -22,8 +22,8 @@ function removeTransition(e){
   };
   
 
-const buttons = document.querySelectorAll('button')
-buttons.forEach(button => button.addEventListener('transitionend', removeTransition))
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
 buttons.forEach(button => button.addEventListener('click', function play() {
     if (this.id==='scissors'){
         this.classList.add('playing')
@@ -72,7 +72,8 @@ buttons.forEach(button => button.addEventListener('click', function play() {
             result.textContent='CPU WON'
             this.removeEventListener('click', play)
         };
-    } else if (this.id==='rock') {
+    } 
+    else if (this.id==='rock') {
         this.classList.add('playing')
         player.textContent = `You played: ${this.id}`;
         player.removeAttribute('class');
@@ -96,4 +97,4 @@ buttons.forEach(button => button.addEventListener('click', function play() {
             this.removeEventListener('click', play)
         };
     };
-}))
+}));
