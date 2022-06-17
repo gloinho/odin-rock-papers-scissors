@@ -17,6 +17,7 @@ const cpuscore = document.getElementById('cpuscore');
 
 const rock = document.getElementById('rock');  
 rock.addEventListener('click', function play() {
+    rock.classList.add('playing')
     player.textContent = `You played: ${rock.id}`;
     player.removeAttribute('class');
     player.classList.add(`${rock.id}`);
@@ -29,7 +30,7 @@ rock.addEventListener('click', function play() {
         result.textContent=('You won! Rock beats Scissors')
         playerscore.textContent = `Player score: ${parseInt(playerscore.innerText.slice(-2)) + 1}`
     }
-    else{result.textContent=(`You chose ${rock.id} and the computer chose ${cpu}... Thats a Tie!`)};
+    else{result.textContent=(`Thats a Tie!`)};
     if (parseInt(playerscore.innerText.slice(-2)) === 5){
         result.textContent='YOU WON'
         rock.removeEventListener('click', play)
@@ -42,6 +43,7 @@ rock.addEventListener('click', function play() {
 
 const paper = document.getElementById('paper');   
 paper.addEventListener('click', function play()  {
+    paper.classList.add('playing')
     player.textContent = `You played: ${paper.id}`;
     player.removeAttribute('class');
     player.classList.add(`${paper.id}`);
@@ -54,7 +56,7 @@ paper.addEventListener('click', function play()  {
         result.textContent=('You lost! Scissors beats Paper!')
         cpuscore.textContent = `CPU score: ${parseInt(cpuscore.innerText.slice(-2)) + 1}`
     }
-    else{result.textContent=(`You chose ${paper.id} and the computer chose ${cpu}... Thats a Tie!`)};
+    else{result.textContent=(`Thats a Tie!`)};
     if (parseInt(playerscore.innerText.slice(-2)) === 5){
         result.textContent='YOU WON'
         paper.removeEventListener('click', play)
@@ -67,6 +69,7 @@ paper.addEventListener('click', function play()  {
 
 const scissors = document.getElementById('scissors');  
 scissors.addEventListener('click', function play()  {
+    scissors.classList.add('playing')
     player.textContent = `You played: ${scissors.id}`;
     player.removeAttribute('class');
     player.classList.add(`${scissors.id}`);
@@ -79,7 +82,7 @@ scissors.addEventListener('click', function play()  {
         result.textContent=('You won! Scissors beats Rock')
         playerscore.textContent = `Player score: ${parseInt(playerscore.innerText.slice(-2)) + 1}`
     }
-    else{result.textContent=(`You chose ${scissors.id} and the computer chose ${cpu}... Thats a Tie!`)};
+    else{result.textContent=(`Thats a Tie!`)};
     if (parseInt(playerscore.innerText.slice(-2)) === 5){
         result.textContent='YOU WON'
         scissors.removeEventListener('click', play)
@@ -89,3 +92,11 @@ scissors.addEventListener('click', function play()  {
         scissors.removeEventListener('click', play)
     };
 });
+
+function removeTransition(e){
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing')
+  };
+  
+const buttons = document.querySelectorAll('button')
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition))

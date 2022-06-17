@@ -6,20 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors!</title>
     <script src="./scripts.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
-    <div id="title">Lets play Rock, Paper, Scissors!</div>
-    <div id="buttons">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+    <div id="container">    
+        <div id="title">Lets play Rock, Paper, Scissors!</div>
+        <div id="infos">
+            <div id="buttons">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <div id="scores">    
+                <div id="cpuscore">CPU Score: 0</div>
+                <div id="playerscore">Player Score: 0</div>
+            </div>
+            <div id="plays">    
+                <div id="computer">CPU play:</div>
+                <div id="player">You played:</div>
+            </div>
+            <div id="result">...</div>
+        </div>
+        <div id="footer">
+            <div><a href="https://github.com/gloinho/odin-rock-papers-scissors" >Developed by Anastácio Gomes</a></div>
+        </div>
     </div>
-    <h1 id="computer"></h1>
-    <h1 id="player"></h1>
-    <h1 id="result"></h1>
-    <h2 id="cpuscore">CPU Score: 0</h1>
-    <h2 id="playerscore">Player Score: 0</h2>
 
 </body>
 </html>
