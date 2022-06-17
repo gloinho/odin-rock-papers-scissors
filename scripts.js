@@ -32,11 +32,11 @@ buttons.forEach(button => button.addEventListener('click', function play() {
         player.classList.add(`${this.id}`);
         let cpu = computerPlay();
         if (cpu==='rock'){
-            result.textContent=('You lost! Rock beats scissors!')
+            result.textContent=('You lost! Rock beats Scissors!')
             cpuscore.textContent = `CPU score: ${parseInt(cpuscore.innerText.slice(-2)) + 1}`
         }
         else if (cpu==='paper'){
-            result.textContent=('You won! Scissors beats Rock')
+            result.textContent=('You won! Scissors beats Paper!')
             playerscore.textContent = `Player score: ${parseInt(playerscore.innerText.slice(-2)) + 1}`
         }
         else{result.textContent=(`Thats a Tie!`)};
