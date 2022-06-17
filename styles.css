@@ -46,13 +46,26 @@ button {
 
 #scores{
     display: flex;
-    gap:50px;
+    gap: 70px;
     border: 2px transparent;
-    padding: 20px;
     font-size: 20px;
     font-weight: bold;
 }
+#plays{
+    display: flex;
+    gap:70px;
+    font-size: 20px;
+    width: 100%;
+    justify-content: center;
+}
 
+#plays #computer{
+    color:red
+}
+
+#plays #player{
+    color:blue
+}
 #result{
     font-size: 30px;
 }
